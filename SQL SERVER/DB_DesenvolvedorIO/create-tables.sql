@@ -1,0 +1,40 @@
+CREATE TABLE Alunos
+(
+    Id INT PRIMARY KEY IDENTITY,
+    Nome VARCHAR(80) NOT NULL,
+    Cpf CHAR(11) NOT NULL,
+    Cidade VARCHAR(60) NOT NULL,
+    Estado CHAR(2) NOT NULL,
+    DataNascimento DATE,
+    Ativo BIT DEFAULT 1
+);
+
+CREATE TABLE Categorias
+(
+    Id INT PRIMARY KEY IDENTITY,
+    Descricao VARCHAR(80) NOT NULL,
+    CadastradoEm DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Cursos
+(
+    Id INT PRIMARY KEY IDENTITY,
+    CategoriaId INT NOT NULL,
+    Descricao VARCHAR(80) NOT NULL,
+    TotalHoras INT NOT NULL,
+    Valor DECIMAL(12, 2) NOT NULL DEFAULT 0,
+    CadastradoEm DATETIME DEFAULT GETDATE(),
+    Ativo BIT DEFAULT 1,
+    CONSTRAINT FK_CategoriaId FOREIGN KEY (CategoriaId) REFERENCES Categorias(Id)
+);
+
+CREATE TABLE AlunosCursos
+(
+    AlunoId INT NOT NULL,
+    CursoId INT NOT NULL,
+    CadastradoEm DATETIME DEFAULT GETDATE(),
+    CONSTRAINT PK_AlunosCursos PRIMARY KEY(AlunoId, CursoId),
+    CONSTRAINT FK_AlunoId FOREIGN KEY (AlunoId) REFERENCES Alunos(Id),
+    CONSTRAINT FK_CursoId FOREIGN KEY (CursoId) REFERENCES Cursos(Id),
+);
+
