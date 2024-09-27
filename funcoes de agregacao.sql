@@ -1,0 +1,13 @@
+/*FUNÇÕES DE AGREGAÇÃO
+GROUP BY - ORDENE POR
+COUNT - CONTAGEM
+MIN - MÍNIMO
+MAX - MÁXIMO
+SUM - SOMA
+AVG - MÉDIA
+*/
+
+SELECT
+ProductKey
+FROM FactResellerSales
+ORDER BY ProductKey

@@ -1,0 +1,18 @@
+/*FUNÇÃO LIKE
+- COMEÇA COM = LIKE 'A%'
+- TERMINA COM = LIKE '%NA'
+- CONTEM NO NOME = LIKE '%N%'
+- LIMITAR CARACTERES = LIKE '%JA_'
+*/
+
+/*COMEÇA COM 'A%'*/
+SELECT *
+FROM DimEmployee
+WHERE FirstName LIKE 'A%'
+ORDER BY FirstName
+
+/*NÃO TEM 'A' NO NOME*/
+SELECT *
+FROM DimEmployee
+WHERE FirstName NOT LIKE '%A%'
+ORDER BY FirstName

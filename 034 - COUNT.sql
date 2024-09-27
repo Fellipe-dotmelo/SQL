@@ -1,0 +1,14 @@
+SELECT 
+DepartmentName,
+COUNT(DepartmentName) AS [QUANTIDADE POR DEPARTAMENTO], 
+TITLE,
+COUNT(TITLE) AS [QUANTIDADE POR TÍTULO]
+FROM DimEmployee
+GROUP BY DepartmentName, Title
+
+SELECT 
+ProductKey,
+COUNT(ProductKey) AS [CONTAGEM DE VENDAS POR LINHA]
+FROM FactResellerSales
+GROUP BY ProductKey
+ORDER BY ProductKey

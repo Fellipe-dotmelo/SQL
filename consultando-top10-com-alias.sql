@@ -1,0 +1,8 @@
+/*RENOMEANDO COM ALIAS (AS)*/
+
+SELECT TOP (10)
+FirstName AS NOME,
+LastName AS SOBRENOME,
+CustomerKey ID_CLIENTE,
+AddressLine1 AS ENDEREÇO
+FROM Dbo.DimCustomer
